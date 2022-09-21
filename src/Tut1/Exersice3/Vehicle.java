@@ -75,11 +75,11 @@ public class Vehicle {
     }
 
     public static void main(String[] args) {
-//        Vehicle vehicle = new Vehicle("Bently", 500.0, 2.3, 1.5, 1500.0, "29B888999");
-//        Car car = new Car("Bently", 500.0, 5.3, 1.5, 1500.0, "29B888999");
-//        Bus bus = new Bus("BWM", 1030.0, 5.0, 2.0, 10000.0, "29A99999");
-        IronSuit ironSuit = new IronSuit("BWM", 1030.0, 5.0, 2.0, 10000.0, "29A99999", "red");
-        ironSuit.fly();
+        Vehicle vehicle = new Vehicle("Bently", 500.0, 2.3, 1.5, 1500.0, "29B888999");
+        Car car = new Car("Bently", 500.0, 5.3, 1.5, 1500.0, "29B888999");
+        Bus bus = new Bus("BWM", 1030.0, 5.0, 2.0, 10000.0, "29A99999");
+//        IronSuit ironSuit = new IronSuit("BWM", 1030.0, 5.0, 2.0, 10000.0, "29A99999", "red");
+//        ironSuit.fly();
 
 
 //        System.out.println(vehicle);
