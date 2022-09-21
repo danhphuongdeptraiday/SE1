@@ -8,7 +8,7 @@ import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class Ex5 {
-    public static void divide(int[] a, int[] b){
+    public static void divide(int[] a, int[] b) throws OutOfIndex, CanNotDivideNumberToZero{
         Scanner sc = new Scanner(System.in);
         List<Integer> listA = Arrays.stream(a).boxed().collect(Collectors.toList());
         List<Integer> listB = Arrays.stream(b).boxed().collect(Collectors.toList());
@@ -16,7 +16,7 @@ public class Ex5 {
 
         if (b.length < a.length) {
             try {
-                throw new IndexOutOfBoundsException();
+                throw new OutOfIndex("Your arrays are not have the same length");
             } catch (Exception e) {
                 System.out.println("Arrays of B is smaller than Arrays of A, add more ?");
                 String ans = sc.nextLine();
@@ -35,7 +35,7 @@ public class Ex5 {
             for (int i = 0; i < a.length; i++){
                 try {
                     if (listA.get(i).equals(0)){
-                        throw new ArithmeticException();
+                        throw new CanNotDivideNumberToZero("Can not divide a number to 0");
                     }
                 } catch (ArithmeticException e1 ){
                     System.out.println("Do you want to continue");
@@ -52,7 +52,7 @@ public class Ex5 {
 
         else if (b.length > a.length) {
             try {
-                throw new IndexOutOfBoundsException();
+                throw new OutOfIndex("Your arrays are not have the same length");
             } catch (Exception e) {
                 System.out.println("Arrays of A is smaller than Arrays of B, add more ?");
                 String ans = sc.nextLine();
@@ -71,7 +71,7 @@ public class Ex5 {
             for (int i = 0; i < b.length; i++){
                 try {
                     if (listA.get(i).equals(0)){
-                        throw new ArithmeticException();
+                        throw new CanNotDivideNumberToZero("Can not divide a number to 0");
                     }
                 } catch (ArithmeticException e1 ){
                     System.out.println("Do you want to continue");
@@ -90,7 +90,7 @@ public class Ex5 {
             for (int i = 0; i < b.length; i++) {
                 try {
                     if (listA.get(i).equals(0)) {
-                        throw new ArithmeticException();
+                        throw new CanNotDivideNumberToZero("Can not divide a number to 0");
                     }
                 } catch (ArithmeticException e1) {
                     System.out.println("Do you want to continue");
@@ -112,5 +112,31 @@ public class Ex5 {
         int[] a = {1,2,3,0,10};
         int[] b = {2,4,6,8,10};
         divide(a,b);
+    }
+}
+
+
+class OutOfIndex extends IndexOutOfBoundsException {
+
+    public OutOfIndex() {}
+
+    public OutOfIndex(String mess) {
+        super(mess);
+    }
+
+    public void printinfo() {
+        System.out.println("you are error");
+    }
+}
+
+class CanNotDivideNumberToZero extends ArithmeticException {
+    public CanNotDivideNumberToZero() {}
+
+    public CanNotDivideNumberToZero(String mess) {
+        super(mess);
+    }
+
+    public void printinfo() {
+        System.out.println("you are error");
     }
 }
