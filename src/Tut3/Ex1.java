@@ -16,9 +16,10 @@ public class Ex1 {
             while ((curLine = br.readLine()) != null) {
                 text+= curLine;
             }
+
             String[] arrText = text.split(" ");
             String newText = "";
-            for (int i = 0; i < args.length; i++){
+            for (int i = 0; i < arrText.length; i++){
                 newText += arrText[i];
             }
             System.out.println(newText);
@@ -26,6 +27,14 @@ public class Ex1 {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
+        } finally {
+            try {
+                if(br != null) {
+                    br.close();
+                }
+            }catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 }
